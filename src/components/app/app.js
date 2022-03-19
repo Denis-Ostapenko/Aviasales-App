@@ -8,25 +8,24 @@ import Loading from '../loading/loading';
 import Filter from '../filter/filter';
 import TicketList from '../ticket-list/ticket-list';
 import MoreTickets from '../more-tickets/more-tickets';
-import * as actions from '../../actions'
+import * as actions from '../../actions';
 import classes from './app.module.scss';
 
 class App extends Component {
-
   componentDidMount() {
     const { fetchSearchId } = this.props;
-    fetchSearchId()
+    fetchSearchId();
   }
 
   componentDidUpdate() {
-    const { fetchPacketTickets, searchId, stopTickets } = this.props
+    const { fetchPacketTickets, searchId, stopTickets } = this.props;
     if (stopTickets === false) {
-      fetchPacketTickets(searchId)
+      fetchPacketTickets(searchId);
     }
   }
 
   render() {
-    const { stopTickets } = this.props
+    const { stopTickets } = this.props;
 
     const loading = !stopTickets ? <Loading /> : null;
 
@@ -56,20 +55,20 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     fetchSearchId,
-    fetchPacketTickets
-  }
+    fetchPacketTickets,
+  };
 };
 
 App.defaultProps = {
   stopTickets: false,
-  searchId: ''
+  searchId: '',
 };
 
 App.propTypes = {
   fetchSearchId: PropTypes.func.isRequired,
   stopTickets: PropTypes.bool,
   searchId: PropTypes.string,
-  fetchPacketTickets: PropTypes.func.isRequired
+  fetchPacketTickets: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
