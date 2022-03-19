@@ -1,0 +1,36 @@
+@keyframes loading {
+    from {
+        background-image: linear-gradient(to right, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 50%);
+        width: 0%;
+    }
+    50% {
+        background-image: linear-gradient(to right, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);
+        width: 75%;
+    }
+    70% {
+        background-image: linear-gradient(to right, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);
+        width: 95%;
+    }
+    to {
+        background-image: linear-gradient(to right, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);
+        width: 100%;
+    }
+}
+
+.loading {
+    &__progress {
+        display: block;
+        height: 5px;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-name: loading;
+        position: absolute;
+        top: -10px;
+        border-radius: 5px;
+    }
+    &__text {
+        position: absolute;
+        top: -35px;
+        margin: 0;
+    }
+}

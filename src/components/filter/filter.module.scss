@@ -1,0 +1,86 @@
+$filter-bg: #ffffff;
+$padding: 16px;
+$filter-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+$text-color: #4a4a4a;
+$bg-el-hover: #f1fcff;
+$checkbox: url("../../images/checkbox.png");
+$checkbox-active: url("../../images/сheckbox-active.png");
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    padding: 17px 0;
+    background: $filter-bg;
+    box-shadow: $filter-box-shadow;
+    border-radius: 5px;
+    color: $text-color;
+
+    @media (max-width: 992px) {
+        padding: 13px 0;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 482px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+
+    &__element {
+        height: 40px;
+        display: flex;
+        padding: 0 20px;
+        align-items: center;
+        font-size: 13px;
+        line-height: 20px;
+        position: relative;
+        cursor: pointer;
+
+        @media (max-width: 768px) {
+            padding: 0 5px;
+        }
+
+        &:hover {
+            background-color: $bg-el-hover;
+        }
+    }
+
+    &__title {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 12px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+
+        @media (max-width: 768px) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+    &__checkbox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        left: 17px;
+        width: 20px;
+        height: 20px;
+
+        @media (max-width: 768px) {
+            left: 2px;
+        }
+
+        &:checked + .filter__custom-checkbox {
+            background-image: $checkbox-active;
+        }
+    }
+
+    &__custom-checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-image: $checkbox;
+    }
+}

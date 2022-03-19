@@ -1,0 +1,29 @@
+$bg-button: #2196f3;
+$color-button: white;
+
+@keyframes loading {
+    from {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.more-tickets-button {
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: loading;
+    color: $color-button;
+    border: 0;
+    background-color: $bg-button;
+    cursor: pointer;
+    @media (max-width: 992px) {
+        height: 40px;
+    }
+}

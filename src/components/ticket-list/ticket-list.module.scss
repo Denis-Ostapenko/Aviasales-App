@@ -1,0 +1,39 @@
+$ticket-list-margin: 20px 0 0 0;
+$bg-item: #ffffff;
+$box-shadow-item: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+.ticket-list {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 0 0;
+
+    &__item {
+        display: block;
+        background-color: $bg-item;
+        box-shadow: $box-shadow-item;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+
+        @media (max-width: 992px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        margin: 10px 0 0 0;
+    }
+}
+.alert-info {
+    background-color: #ffffff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: $box-shadow-item;
+    border-radius: 5px;
+    transition: all 2s ease-in-out;
+}
