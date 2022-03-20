@@ -1,6 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable spaced-comment */
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'antd';
@@ -9,8 +7,6 @@ import Ticket from '../Ticket';
 import classes from './Ticket-list.module.scss';
 
 class TicketList extends Component {
-
-
   filterPacketTickets(packetTickets) {
     const { filter } = this.props;
     const activeFilter = [];

@@ -17,11 +17,11 @@ class ApiServise {
         if (!res.ok) {
           throw new Error(`error fetch URL`);
         }
-        return res.json()
+        return res.json();
       });
       return body;
     } catch {
-      return {tickets: [], stop: false}
+      return { tickets: [], stop: false };
     }
   }
 }

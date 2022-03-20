@@ -7,21 +7,20 @@ import Tabs from '../Tabs';
 import Loading from '../Loading';
 import Filter from '../Filter';
 import TicketList from '../Ticket-list';
-import MoreTickets from '../More-tickets'
+import MoreTickets from '../More-tickets';
 import * as actions from '../../actions';
 import classes from './App.module.scss';
 
 class App extends Component {
-
   componentDidMount() {
     const { fetchSearchId } = this.props;
     fetchSearchId();
   }
 
   componentDidUpdate() {
-    const { searchId, fetchPacketTickets, packetTickets } = this.props
+    const { searchId, fetchPacketTickets, packetTickets } = this.props;
     if (packetTickets.length === 0) {
-      fetchPacketTickets(searchId)
+      fetchPacketTickets(searchId);
     }
   }
 
@@ -62,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
 
 App.defaultProps = {
   searchId: '',
-  packetTickets: []
+  packetTickets: [],
 };
 
 App.propTypes = {

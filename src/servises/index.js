@@ -1,3 +1,3 @@
-import apiServise from './servises'
+import apiServise from './servises';
 
 export default apiServise;
