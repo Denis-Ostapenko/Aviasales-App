@@ -2,32 +2,33 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../header/header';
-import Tabs from '../tabs/tabs';
-import Loading from '../loading/loading';
-import Filter from '../filter/filter';
-import TicketList from '../ticket-list/ticket-list';
-import MoreTickets from '../more-tickets/more-tickets';
+import Header from '../Header';
+import Tabs from '../Tabs';
+import Loading from '../Loading';
+import Filter from '../Filter';
+import TicketList from '../Ticket-list';
+import MoreTickets from '../More-tickets'
 import * as actions from '../../actions';
-import classes from './app.module.scss';
+import classes from './App.module.scss';
 
 class App extends Component {
+
   componentDidMount() {
     const { fetchSearchId } = this.props;
     fetchSearchId();
   }
 
   componentDidUpdate() {
-    const { fetchPacketTickets, searchId, stopTickets } = this.props;
-    if (stopTickets === false) {
-      fetchPacketTickets(searchId);
+    const { searchId, fetchPacketTickets, packetTickets } = this.props
+    if (packetTickets.length === 0) {
+      fetchPacketTickets(searchId)
     }
   }
 
   render() {
-    const { stopTickets } = this.props;
+    const { packetTickets } = this.props;
 
-    const loading = !stopTickets ? <Loading /> : null;
+    const loading = packetTickets.length === 0 ? <Loading /> : null;
 
     return (
       <div className={classes['aviasales-app']}>
@@ -48,7 +49,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ stopTickets, searchId }) => ({ stopTickets, searchId });
+const mapStateToProps = ({ searchId, packetTickets }) => ({ searchId, packetTickets });
 
 const mapDispatchToProps = (dispatch) => {
   const { fetchSearchId, fetchPacketTickets } = bindActionCreators(actions, dispatch);
@@ -60,14 +61,14 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 App.defaultProps = {
-  stopTickets: false,
   searchId: '',
+  packetTickets: []
 };
 
 App.propTypes = {
   fetchSearchId: PropTypes.func.isRequired,
-  stopTickets: PropTypes.bool,
   searchId: PropTypes.string,
+  packetTickets: PropTypes.arrayOf(PropTypes.object),
   fetchPacketTickets: PropTypes.func.isRequired,
 };
 

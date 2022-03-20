@@ -13,17 +13,15 @@ class ApiServise {
 
   async getTickets(searchId) {
     try {
-      const body = await fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`).then((res) =>
-        res.json()
-      );
+      const body = await fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`).then((res) => {
+        if (!res.ok) {
+          throw new Error(`error fetch URL`);
+        }
+        return res.json()
+      });
       return body;
     } catch {
-      const body = await fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`).then((res) =>
-        res.json()
-      );
-      return body;
-      //Если надо получить всю пачку билетов
-      //return []
+      return {tickets: [], stop: false}
     }
   }
 }

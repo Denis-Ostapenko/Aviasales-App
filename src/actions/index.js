@@ -1,5 +1,4 @@
-/* eslint-disable spaced-comment */
-import apiServise from '../servises/servises';
+import apiServise from '../servises';
 
 const updatePacketTickets = (packetTickets) => ({
   type: 'UPDATE_PACKET_TICKETS',
@@ -36,12 +35,10 @@ const fetchSearchId = () => (dispatch) => {
 
 const fetchPacketTickets = (searchId) => (dispatch) => {
   apiServise.getTickets(searchId).then((res) => {
-    //Если надо получить всю пачку билетов
-    // if (res.stop) {
-    //     dispatch(updateStopTickets(res.stop));
-    // }
+    if (res.stop) {
+      dispatch(updateStopTickets(res.stop));
+    }
     dispatch(updatePacketTickets(res.tickets));
-    dispatch(updateStopTickets(true));
   });
 };
 

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
-import classes from './tabs.module.scss';
+import classes from './Tabs.module.scss';
 
 const Tabs = (props) => {
   const { sortButtons, updateSortButtons } = props;

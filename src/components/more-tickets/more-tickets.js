@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
-import classes from './more-tickets.module.scss';
+import classes from './More-tickets.module.scss';
 
 const MoreTickets = (props) => {
   const { updateHowManyTickets, filter } = props;

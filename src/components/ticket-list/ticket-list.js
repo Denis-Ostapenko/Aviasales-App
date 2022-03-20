@@ -1,20 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable spaced-comment */
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Alert } from 'antd';
 import PropTypes from 'prop-types';
-import Ticket from '../ticket/ticket';
-import classes from './ticket-list.module.scss';
+import Ticket from '../Ticket';
+import classes from './Ticket-list.module.scss';
 
 class TicketList extends Component {
-  //Если надо получить всю пачку билетов
-  // componentDidUpdate() {
-  //   const { fetchPacketTickets, searchId, stopTickets } = this.props
-  //   if (stopTickets === false) {
-  //     fetchPacketTickets(searchId)
-  //   }
-  // }
+
 
   filterPacketTickets(packetTickets) {
     const { filter } = this.props;
@@ -55,15 +50,7 @@ class TicketList extends Component {
     return newPacketTickets;
   }
 
-  sortPacketTickets(packetTickets) {
-    const { sortButtons } = this.props;
-    let activeSortButtons = '';
-
-    sortButtons.forEach((element) => {
-      if (element.isActive) {
-        activeSortButtons = element.name;
-      }
-    });
+  sortPacketTickets(packetTickets, activeSortButtons) {
     const newPacketTickets = [];
     packetTickets.forEach((ticket) => {
       const sumTime = ticket.segments[0].duration + ticket.segments[1].duration;
@@ -91,7 +78,14 @@ class TicketList extends Component {
         activeFilter.push(element.name);
       }
     });
-    const newPacketTickets = this.sortPacketTickets(this.filterPacketTickets(packetTickets));
+    const { sortButtons } = this.props;
+    let activeSortButtons = '';
+    sortButtons.forEach((element) => {
+      if (element.isActive) {
+        activeSortButtons = element.name;
+      }
+    });
+    const newPacketTickets = this.sortPacketTickets(this.filterPacketTickets(packetTickets), activeSortButtons);
     const alert =
       activeFilter.length === 0 ? (
         <Alert

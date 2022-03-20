@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as actions from '../../actions';
-import classes from './filter.module.scss';
+import classes from './Filter.module.scss';
 
 const Filter = (props) => {
   const { filter, updateFilter } = props;

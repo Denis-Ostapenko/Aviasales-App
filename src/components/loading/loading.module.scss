@@ -27,10 +27,16 @@
         position: absolute;
         top: -10px;
         border-radius: 5px;
+        @media (max-width: 768px) {
+            top: -135px;
+        }
     }
     &__text {
         position: absolute;
         top: -35px;
         margin: 0;
+        @media (max-width: 768px) {
+            top: -160px;
+        }
     }
 }

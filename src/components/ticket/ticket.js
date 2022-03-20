@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './ticket.module.scss';
+import classes from './Ticket.module.scss';
 
 const Ticket = (props) => {
   const { ticket } = props;
