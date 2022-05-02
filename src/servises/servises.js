@@ -2,7 +2,7 @@
 /* eslint-disable spaced-comment */
 class ApiServise {
   async getKey() {
-    const api = await fetch('https://front-test.beta.aviasales.ru/search').then((res) => {
+    const api = await fetch('https://aviasales-test-api.kata.academy/search').then((res) => {
       if (!res.ok) {
         throw new Error(`error fetch URL`);
       }
@@ -13,7 +13,7 @@ class ApiServise {
 
   async getTickets(searchId) {
     try {
-      const body = await fetch(`https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`).then((res) => {
+      const body = await fetch(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`).then((res) => {
         if (!res.ok) {
           throw new Error(`error fetch URL`);
         }
