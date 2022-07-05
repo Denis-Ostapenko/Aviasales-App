@@ -3,7 +3,7 @@
 Поиск авиабилетов. Можно искать и фильтровать авиабилеты.
 
 ## Стэк: 
-ES6+, React.js, Redux, CSS Modules, REST API, ESLint, Prettier.
+ES6+, React.js, Redux, CSS Modules, API, ESLint, Prettier.
 
 ## Команды проекта:
 `npm run start` — запускает сайт для разработки <br>
